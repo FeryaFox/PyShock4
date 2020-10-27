@@ -105,7 +105,7 @@ class TShock():
         **endpoint:** v2/token/create/
         """
         self.urls.token = self._make_request(
-            self.urls.get_url("v2", "token", "create", password, username=user)
+            self.urls.get_url("v2", "token", "create", username=user, password=password)
         )["token"]
 
     def get_status(self) -> dict:
