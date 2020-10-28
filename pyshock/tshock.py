@@ -268,13 +268,22 @@ class TShock():
                 * username - The player's username (if they are registered)
                 * ip - The player's IP address
                 * group - The group that the player belongs to
+                * register - time whene he register
+                * muted - if player muted
                 * position - The player's current position on the map
                 * inventory - A list of all items in the player's inventory
+                * item - player`s item
+                    * inventory - player`s item in inventory
+                    * equipment - player`s equipment
+                    * dyes - player`s item in dyes slot
+                    * piggy - player`s item in piggy
+                    * safe -  player`s item in safe
+                    * forge - player`s item in forge 
                 * buffs - A list of all buffs that are currently affecting the player
 
-        **endpoint:** /v2/players/read
+        **endpoint:** /v4/players/read
         """
-        return self._make_request(self.urls.get_url("v2", "players", "read", player=player))
+        return self._make_request(self.urls.get_url("v4", "players", "read", player=player))
 
     def get_world_info(self):
         """Gets some information about the current world.
