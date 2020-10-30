@@ -430,21 +430,7 @@ class TShock():
         """
         self._make_request(self.urls.get_url("v3", "server", "restart"))
 
-    def do_server_rawcmd_v2(self, command : str):
-        """Executes a command on the server and returns the output.
-
-        :param str command:
-            The command to be executed.
-
-        :returns:
-            A dict with these items:
-                * response - The output of the command as a string. Each line of output is separated by a newline.
-
-        **endpoint:** /v2/server/rawcmd
-        """
-        return self._make_request(self.urls.get_url("v2", "server", "rawcmd", cmd=command))
-
-    def do_server_rawcmd_v3(self, command : str):
+    def do_server_rawcmd(self, command : str):
         """Executes a command on the server and returns the output.
 
         :param str command:
