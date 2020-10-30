@@ -255,8 +255,28 @@ class TShock():
         **endpoint:** /v2/players/list
         """
         return self._make_request(self.urls.get_url("v2", "players", "list"))
-
+    
     def get_player_info(self, player : str):
+        """Gets information about a specific player.
+        :param str player:
+            The player to look for, by name.
+        :returns:
+            A dict with these items:
+                * nickname - The player's nickname
+                * username - The player's username (if they are registered)
+                * ip - The player's IP address
+                * group - The group that the player belongs to
+                * register - time whene he register
+                * position - The player's current position on the map
+                * inventory - A list of all items in the player's inventory
+                * armor - his armor
+                * dyes - player`s item in dyes slot
+                * buffs - A list of all buffs that are currently affecting the player
+        **endpoint:** /v2/players/read
+        """
+        return self._make_request(self.urls.get_url("players", "read", player=player))
+    
+    def get_player_info_v4(self, player : str):
         """Gets information about a specific player.
 
         :param str player:
