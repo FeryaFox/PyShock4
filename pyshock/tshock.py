@@ -408,12 +408,20 @@ class TShock():
         """
         self._make_request(self.urls.get_url("v3", "server", "reload"))
 
-    def do_server_off(self):
+    def do_server_off(self, confirm: bool = True, nosave: bool = False):
         """Shuts down the server.
 
+        :param bool confirm:
+            Do you realy want do off server?
+            Usually True
+
+        :param bool nosave:
+            Off server without save or not?
+            Usually False
+            
         **endpoint:** /v2/server/off
         """
-        self._make_request(self.urls.get_url("v2", "server", "off"))
+        self._make_request(self.urls.get_url("v2", "server", "off", confirm=confirm, nosave=nosave))
 
     def do_server_restart(self):
         """Restarts the server.
