@@ -588,6 +588,25 @@ class TShock():
                                              permissions=permissions,
                                              chatcolor=chatColor))
 
+     def do_create_user(self, lookup: UserLookupType, user : str, password: str, group: str):
+        """Create user.
+
+        :param UserLookupType type:
+            The method in which to lookup the user.
+
+        :param user str:
+            Name of user you want to create
+
+        :param password str:
+            Password of user you want to create
+
+        :param group str:
+            Group of user you want to create        
+
+        **endpoint:** /v2/users/create
+        """
+        self._make_request(self.urls.get_url("v2", "users", "create", type=lookup.value, user=user, password=password, group=group))
+        
     def set_update_user(self, user : str, type : UserLookupType, password : str, group : str):
         """Updates a user in the TShock DB.
 
